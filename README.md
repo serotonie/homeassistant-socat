@@ -51,4 +51,4 @@ What the zwave device should be mapped to. Use this in your home assistant confi
 
 # Credits
 
-Thanks to @vladbabii for the base work :)
+Thanks to [vladbabii](https://github.com/vladbabii) for the base work :)
