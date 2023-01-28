@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-if [[ -z "${SOCAT_ZWAVE_TYPE}" ]]; then
-  SOCAT_ZWAVE_TYPE="tcp"
+if [[ -z "${SOCAT_ZIGBEE_TYPE}" ]]; then
+  SOCAT_ZIGBEE_TYPE="tcp"
 fi
-if [[ -z "${SOCAT_ZWAVE_LOG}" ]]; then
-  SOCAT_ZWAVE_LOG="-lf \"$SOCAT_ZWAVE_LOG\""
+if [[ -z "${SOCAT_ZIGBEE_LOG}" ]]; then
+  SOCAT_ZIGBEE_LOG="-lf \"$SOCAT_ZIGBEE_LOG\""
 fi
-if [[ -z "${SOCAT_ZWAVE_LINK}" ]]; then
-  SOCAT_ZWAVE_LINK="/dev/zwave"
+if [[ -z "${SOCAT_ZIGBEE_LINK}" ]]; then
+  SOCAT_ZIGBEE_LINK="/dev/zigbee"
 fi
 
 BINARY="socat"
-PARAMS="$INT_SOCAT_LOG-d -d -d pty,link=$SOCAT_ZWAVE_LINK,raw,user=root,mode=777 $SOCAT_ZWAVE_TYPE:$SOCAT_ZWAVE_HOST:$SOCAT_ZWAVE_PORT"
+PARAMS="$INT_SOCAT_LOG-d -d -d pty,link=$SOCAT_ZIGBEE_LINK,raw,user=root,mode=777 $SOCAT_ZIGBEE_TYPE:$SOCAT_ZIGBEE_HOST:$SOCAT_ZIGBEE_PORT"
 
 ######################################################
 

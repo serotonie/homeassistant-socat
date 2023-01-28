@@ -1,14 +1,14 @@
-# Home Assistant with socat for remote zwave
+# Home Assistant with socat for remote serial device
 
 Based on [homeassistant-home-assistant](https://hub.docker.com/r/homeassistant/home-assistant/) image, [published on docker hub](https://hub.docker.com/r/vladbabii/homeassistant-socat/).
 
-Please [report issues on github](https://github.com/vladbabii/homeassistant-socat/issues).
+Please [report issues on github](https://github.com/serotonie/homeassistant-socat/issues).
 
-Instead of using a locally-connected zwave device (usb stick/etc), we can use a serial device mapped over the network with ser2net and then map it to a local zwave serial device with socat.
+Instead of using a locally-connected serial device (usb stick/etc), we can use it mapped over the network with ser2net and then map it to a local zwave serial device with socat.
 
 This docker container ensures that
 
- - a zwave device is mapped in the local docker with socat
+ - a zigbee device is mapped in the local docker with socat
 
  - home assistant is running
 
@@ -37,14 +37,18 @@ Path to log file. Ommit to write logs to stdout.
 
 Default: stdout
 
-**SOCAT_ZWAVE_TYPE**="tcp"
+**SOCAT_ZIGBEE_TYPE**="tcp"
 
-**SOCAT_ZWAVE_HOST**="192.168.5.5"
+**SOCAT_ZIGBEE_HOST**="192.168.5.5"
 
-**SOCAT_ZWAVE_PORT**="7676"
+**SOCAT_ZIGBEE_PORT**="7676"
 
 Where socat should connect to - will be used as tcp://192.168.5.5:7676
 
-**SOCAT_ZWAVE_LINK**="/dev/zwave"
+**SOCAT_ZIGBEE_LINK**="/dev/zigbee"
 
 What the zwave device should be mapped to. Use this in your home assistant configuration file.
+
+# Credits
+
+Thanks to @vladbabii for the base work :)
